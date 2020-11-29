@@ -1,0 +1,50 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: badmos/posts
+      context: posts
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: badmos/comments
+      context: comments
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: badmos/event-bus
+      context: event-bus
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: badmos/query
+      context: query
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: badmos/moderation
+      context: moderation
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .

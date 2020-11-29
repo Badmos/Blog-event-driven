@@ -1,0 +1,23 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 11
+    },
+    "rules": {
+        "indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
+        "no-tabs": 0,
+        "no-console":"off",
+        "import/newline-after-import": "off",
+        "no-unused-vars": "off",
+        "max-len": 0
+    }
+}
